@@ -1,3 +1,3 @@
 # crypto-arbitrage
 
-Requires Python>=3.8
+Requires Python >= 3.8
