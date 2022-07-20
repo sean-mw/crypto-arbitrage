@@ -1,0 +1,9 @@
+{
+"live_trading": false,
+"holding_currencies": ["BUSD", "USDT"],
+"holding_balance": 20,
+"blacklist": ["BTC", "ETH", "BTTC", "BIDR"],
+"key": null,
+"secret": null
+}
+
