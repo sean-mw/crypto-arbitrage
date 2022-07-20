@@ -9,12 +9,12 @@ from config import config
 
 
 def main():
-    print("Starting main thread...")
+    print('Starting main thread...')
 
     start = config['holding_currencies'][0]
     returns = []
 
-    print("Searching for cycles...")
+    print('Searching for cycles...')
     while True:
         time.sleep(0.1)  # Yield to allow t_price thread to catch up
         cycle = find_negative_cycle(start)
