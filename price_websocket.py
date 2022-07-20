@@ -11,6 +11,7 @@ def message_handler(message):
 
 
 def start_price_websocket():
+    print('Starting price thread...')
     ws_client = WebsocketClient()
     ws_client.start()
     ws_client.book_ticker(id=1, callback=message_handler)
