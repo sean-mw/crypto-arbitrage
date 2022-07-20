@@ -44,7 +44,7 @@ def main():
                     returns.append(est_pct_ret)
                     print('Estimated trade return (graph price):', est_pct_ret, '%')
 
-                print('Cumulative return from all trades:', sum(returns), '%')
+                print('Cumulative return from all trades:', sum(returns), '%', end='\n\n')
 
 
 if __name__ == '__main__':
