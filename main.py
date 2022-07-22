@@ -21,30 +21,34 @@ def main():
 
         if cycle and cycle[0] in config['holding_currencies']:
 
+            blacklist = False
             for i in cycle:
                 if i in config['blacklist']:
-                    continue
+                    blacklist = True
+                    break
+            if blacklist:
+                continue
 
-                print('Cycle found:', cycle)
+            print('Cycle found:', cycle)
 
-                if config['live_trading']:
-                    start_time = default_timer()
-                    pct_return = buy_path(cycle, config['holding_balance'])
-                    print('Time for buy path:', default_timer() - start_time)
-                    returns.append(pct_return)
-                    print('Pct return:', pct_return, '%')
-                    est_pct_ret = (path_product(cycle) - 1) * 100
-                    print('Estimated trade return (graph price):', est_pct_ret, '%')
-                else:
-                    start_time = default_timer()
-                    est_pct_ret = test_path(cycle)
-                    print('Time for test path:', default_timer() - start_time)
-                    print('Estimated trade return (client price):', est_pct_ret, '%')
-                    est_pct_ret = (path_product(cycle) - 1) * 100
-                    returns.append(est_pct_ret)
-                    print('Estimated trade return (graph price):', est_pct_ret, '%')
+            if config['live_trading']:
+                start_time = default_timer()
+                pct_return = buy_path(cycle, config['holding_balance'])
+                print('Time for buy path:', default_timer() - start_time)
+                returns.append(pct_return)
+                print('Pct return:', pct_return, '%')
+                est_pct_ret = (path_product(cycle) - 1) * 100
+                print('Estimated trade return (graph price):', est_pct_ret, '%')
+            else:
+                start_time = default_timer()
+                est_pct_ret = test_path(cycle)
+                print('Time for test path:', default_timer() - start_time)
+                print('Estimated trade return (client price):', est_pct_ret, '%')
+                est_pct_ret = (path_product(cycle) - 1) * 100
+                returns.append(est_pct_ret)
+                print('Estimated trade return (graph price):', est_pct_ret, '%')
 
-                print('Cumulative return from all trades:', sum(returns), '%', end='\n\n')
+            print('Cumulative return from all trades:', sum(returns), '%', end='\n\n')
 
 
 if __name__ == '__main__':
