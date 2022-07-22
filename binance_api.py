@@ -9,8 +9,6 @@ from config import config
 
 client = Client(config['key'], config['secret'], base_url='https://api.binance.com')
 
-transaction_fee = 0.00075  # 0.001 if not holding BNB
-
 
 def client_get_price(symbol):
     return client.book_ticker(symbol)

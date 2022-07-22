@@ -2,6 +2,7 @@
 "live_trading": false,
 "holding_currencies": ["BUSD", "USDT"],
 "holding_balance": 20,
+"transaction_fee": 0.00075,
 "blacklist": ["BTC", "ETH", "BTTC", "BIDR"],
 "key": null,
 "secret": null

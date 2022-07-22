@@ -1,6 +1,7 @@
-from binance_api import buy, sell, client_get_price, transaction_fee
+from binance_api import buy, sell, client_get_price
 
 from symbol_info_util import get_all_symbols
+from config import config
 
 
 def test_path(path):
@@ -12,7 +13,7 @@ def test_path(path):
         else:
             price = 1.0 / float(client_get_price(path[idx+1] + path[idx])['askPrice'])
         balance *= price
-        balance -= balance * transaction_fee
+        balance -= balance * config['transaction_fee']
     return (balance - 1) * 100
 
 
@@ -31,7 +32,7 @@ def calculate_pct_return(prices):
     pct_return = 1
     for price in prices:
         pct_return *= price
-        pct_return -= pct_return * transaction_fee
+        pct_return -= pct_return * config['transaction_fee']
     pct_return -= 1
     pct_return *= 100
     return pct_return

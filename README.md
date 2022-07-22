@@ -27,9 +27,10 @@ Modify "key" and "secret" in config.json.
 "live_trading": false,
 "holding_currencies": ["BUSD", "USDT"],
 "holding_balance": 20,
+"transaction_fee": 0.00075,
 "blacklist": ["BTC", "ETH", "BTTC", "BIDR"],
-"key": <INSERT BINANCE API KEY HERE>,
-"secret": <INSERT BINANCE SECRET KEY HERE>
+"key": null,
+"secret": null
 }
 ```
 #### OR
@@ -51,7 +52,7 @@ Start the bot by calling main.
 python main.py
 ```
 ### Modifying Config.json
-Other than key and secret, the config.json file has four modifiable variables: live_trading, holding_currencies, holding_balance, blacklist.
+Other than key and secret, the config.json file has five modifiable variables: live_trading, holding_currencies, holding_balance, transaction_fee, blacklist.
 #### Live Trading (WARNING: Expect to lose money)
 By default this is set to false. Change it to true to if you wish to trade with real money. Ensure you are holding enough of each holding currency before doing so.
 
@@ -60,5 +61,7 @@ NOTE: The results you see while live_trading=false are not representative of the
 These are the currencies that will always be at the start and end of each arbitrage cycle (e.g. holding currency -> currency 1 -> currency 2 -> holding currency). I would strongly suggest using stable coins here.
 #### Holding Balance
 This is how much of your holding currencies the bot will trade. Ensure that you have more than this amount worth of each of your holding currencies in your account before live trading.
+#### Transaction Fee
+This controls the fees charged while live_trading=false. For more information on fees see the [Binance fee schedule](https://www.binance.com/en/fee/schedule).
 #### Blacklist
 These are blacklisted currencies. If any of these currencies appear in a cycle, the bot will not make the trade.
