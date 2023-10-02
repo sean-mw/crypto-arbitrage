@@ -36,7 +36,7 @@ Modify "key" and "secret" in config.json.
 #### OR
 Create a .env file.
 ```
-touch.env
+touch .env
 ```
 Add key and secret.
 ```
